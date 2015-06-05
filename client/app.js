@@ -1,5 +1,5 @@
 var Webrtc2Images = require('webrtc2images'); //para gravar imagenes
-
+var xhr = require('xhr');
 var rtc = new Webrtc2Images({
   width: 200,
   height: 200,
@@ -9,22 +9,37 @@ var rtc = new Webrtc2Images({
   interval: 200
 });
 
-rtc.startVideo(function (err) {
+rtc.startVideo(function(err) {
   if (err) return logError(err)
-});//inicia la camara
+}); //inicia la camara
 
 var record = document.querySelector('#record');
 
-record.addEventListener('click',  function (e) {//click en record
+record.addEventListener('click', function(e) { //click en record
   e.preventDefault();
 
-  rtc.recordVideo(function (err, frames) {
+  rtc.recordVideo(function(err, frames) {
     if (err) return logError(err);
     console.log(frames);
-  });//start to record
+    //envia mediante post las imagenes
+    xhr({
+      uri: '/process',
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        images: frames
+      })
+    }, function(err, res, body) {
+      if (err) logError(err);
+      console.log(JSON.parse(body));
+    });
+
+  }); //start to record
 
 }, false);
 
-function logError (err) {
+function logError(err) {
   console.error(err);
 }

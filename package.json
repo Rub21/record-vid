@@ -20,9 +20,11 @@
   },
   "homepage": "https://github.com/Rub21/record-vid",
   "dependencies": {
+    "body": "^5.0.0",
     "course": "0.0.1",
     "st": "^0.5.4",
-    "webrtc2images": "^1.4.4"
+    "webrtc2images": "^1.4.4",
+    "xhr": "^2.0.1"
   },
   "devDependencies": {
     "browserify": "^10.2.3"
