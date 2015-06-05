@@ -2,9 +2,9 @@
   "name": "record-vid",
   "version": "0.0.0",
   "description": "record ",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "browserify client/app.js -o public/bundle.js & node server.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,13 @@
   "bugs": {
     "url": "https://github.com/Rub21/record-vid/issues"
   },
-  "homepage": "https://github.com/Rub21/record-vid"
+  "homepage": "https://github.com/Rub21/record-vid",
+  "dependencies": {
+    "course": "0.0.1",
+    "st": "^0.5.4",
+    "webrtc2images": "^1.4.4"
+  },
+  "devDependencies": {
+    "browserify": "^10.2.3"
+  }
 }
