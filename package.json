@@ -20,9 +20,13 @@
   },
   "homepage": "https://github.com/Rub21/record-vid",
   "dependencies": {
+    "async": "^1.2.0",
     "body": "^5.0.0",
+    "concat-stream": "^1.4.8",
     "course": "0.0.1",
+    "data-uri-to-buffer": "0.0.3",
     "st": "^0.5.4",
+    "uuid": "^2.0.1",
     "webrtc2images": "^1.4.4",
     "xhr": "^2.0.1"
   },

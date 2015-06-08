@@ -32,8 +32,17 @@ record.addEventListener('click', function(e) { //click en record
         images: frames
       })
     }, function(err, res, body) {
-      if (err) logError(err);
-      console.log(JSON.parse(body));
+      if (err) return logError(err)
+
+      body = JSON.parse(body)
+
+      if (body.video) {
+        var video = document.querySelector('#video')
+        video.src = body.video
+        video.loop = true
+        video.play()
+      }
+
     });
 
   }); //start to record
